@@ -18,6 +18,7 @@ def fetch_wkt_data(area_id):
         return None
 
 @asset(
+    description="Geometry for select E00 Output Areas",
     group_name="national_statistics",
 )
 def e00_geometry(duckdb: DuckDBResource) -> None:
@@ -29,7 +30,6 @@ def e00_geometry(duckdb: DuckDBResource) -> None:
         wkt_value = fetch_wkt_data(area_id)
         if wkt_value:
             wkt_data[area_id] = wkt_value
-            print(f"WKT for {area_id}: {wkt_value}")
 
     # Format the data as a list of lists for executemany
     wkt_data_list = [[area_id, wkt] for area_id, wkt in wkt_data.items()]

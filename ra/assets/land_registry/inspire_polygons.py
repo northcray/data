@@ -20,6 +20,7 @@ def fetch_inspire_data() -> None:
 
 
 @asset(
+    description="Polygons are shapes that show the position and indicative extent of a registered property. Each INSPIRE Index Polygon has a unique identification number called the Land Registry-INSPIRE ID that relates to a registered title.",
     group_name="land_registry",
     deps=["overture_buildings"]
 )
